@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WiuWiu Ambulance - Ambulan Gratis Malang Raya</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-red: #E63946;
+            --secondary-red: #F1FAEE;
+            --dark-red: #A8192E;
+            --light-gray: #F8F9FA;
+            --text-dark: #2B2D42;
+        }
+        
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            overflow-x: hidden;
+        }
+        
+        /* Navbar */
+        .navbar {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--primary-red) !important;
+        }
+        
+        .nav-link {
+            color: var(--text-dark) !important;
+            font-weight: 500;
+            margin: 0 0.5rem;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-red) !important;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
+            color: white;
+            padding: 100px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,197.3C1248,203,1344,149,1392,122.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: bottom;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+        
+        .btn-emergency {
+            background: white;
+            color: var(--primary-red);
+            font-weight: 600;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+        }
+        
+        .btn-emergency:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            background: var(--secondary-red);
+            color: var(--primary-red);
+        }
+        
+        /* Features Section */
+        .features-section {
+            padding: 80px 0;
+            background: var(--light-gray);
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            height: 100%;
+            border: 2px solid transparent;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(230, 57, 70, 0.2);
+            border-color: var(--primary-red);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--primary-red);
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-title {
+            font-weight: 600;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+        
+        .feature-text {
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        /* Services Section */
+        .services-section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+        }
+        
+        .service-item {
+            padding: 1.5rem;
+            background: white;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--primary-red);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+        
+        .service-item:hover {
+            box-shadow: 0 5px 20px rgba(230, 57, 70, 0.15);
+            transform: translateX(10px);
+        }
+        
+        .service-item i {
+            color: var(--primary-red);
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+        
+        /* Transparency Section */
+        .transparency-section {
+            padding: 80px 0;
+            background: var(--secondary-red);
+        }
+        
+        .donation-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .donation-amount {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-red);
+        }
+        
+        .donation-label {
+            color: #666;
+            font-size: 1rem;
+            margin-top: 0.5rem;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
+            color: white;
+        }
+        
+        .contact-box {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s;
+        }
+        
+        .contact-box:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-5px);
+        }
+        
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-title {
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-detail {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+            padding: 15px 40px;
+            font-weight: 600;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 2rem;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .btn-whatsapp:hover {
+            background: #20BA5A;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+        
+        .footer-title {
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        
+        .footer-link {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+        
+        .footer-link:hover {
+            color: var(--primary-red);
+        }
+        
+        .social-icon {
+            color: white;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            transition: color 0.3s;
+        }
+        
+        .social-icon:hover {
+            color: var(--primary-red);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        
+        /* Pulse Animation for Emergency Button */
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(255, 255, 255, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+            }
+        }
+        
+        .btn-emergency {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-heart-pulse-fill"></i> WiuWiu
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#beranda">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#layanan">Layanan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#transparansi">Transparansi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#kontak">Kontak</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="beranda">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content">
+                    <br><br><br>
+                    <h1 class="hero-title">Ambulan Gratis untuk Masyarakat</h1>
+                    <p class="hero-subtitle">
+                        Layanan ambulan responsif 24/7 untuk wilayah Malang Raya. 
+                        Kami hadir membantu mereka yang membutuhkan tanpa dipungut biaya.
+                    </p>
+                    <a href="#kontak" class="btn btn-emergency">
+                        <i class="bi bi-telephone-fill"></i> Hubungi Sekarang
+                    </a>
+                </div>
+                <div class="col-lg-6 text-center mt-5 mt-lg-0">
+                    <svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Ambulan Body -->
+                        <rect x="80" y="120" width="200" height="100" rx="15" fill="#ffffff" opacity="0.9"/>
+                        
+                        <!-- Ambulan Cabin -->
+                        <path d="M 80 150 Q 80 120 110 120 L 150 120 L 150 220 L 80 220 Z" fill="#ffffff" opacity="0.9"/>
+                        
+                        <!-- Windows -->
+                        <rect x="90" y="130" width="50" height="35" rx="5" fill="#E8F4F8"/>
+                        <rect x="160" y="130" width="50" height="35" rx="5" fill="#E8F4F8"/>
+                        <rect x="220" y="130" width="50" height="35" rx="5" fill="#E8F4F8"/>
+                        
+                        <!-- Red Cross -->
+                        <rect x="185" y="155" width="30" height="10" rx="2" fill="#E63946"/>
+                        <rect x="195" y="145" width="10" height="30" rx="2" fill="#E63946"/>
+                        
+                        <!-- Wheels -->
+                        <circle cx="120" cy="220" r="25" fill="#2B2D42"/>
+                        <circle cx="120" cy="220" r="15" fill="#ffffff" opacity="0.3"/>
+                        <circle cx="240" cy="220" r="25" fill="#2B2D42"/>
+                        <circle cx="240" cy="220" r="15" fill="#ffffff" opacity="0.3"/>
+                        
+                        <!-- Siren Light -->
+                        <ellipse cx="200" cy="110" rx="20" ry="10" fill="#E63946" opacity="0.8">
+                            <animate attributeName="opacity" values="0.8;0.3;0.8" dur="1s" repeatCount="indefinite"/>
+                        </ellipse>
+                        
+                        <!-- Bumper -->
+                        <rect x="75" y="180" width="10" height="30" rx="3" fill="#E63946"/>
+                        
+                        <!-- Headlight -->
+                        <circle cx="85" cy="195" r="5" fill="#FFF59D"/>
+                        
+                        <!-- Motion Lines (Speed effect) -->
+                        <line x1="40" y1="140" x2="70" y2="140" stroke="#E63946" stroke-width="3" opacity="0.5" stroke-linecap="round">
+                            <animate attributeName="x1" values="40;20;40" dur="1.5s" repeatCount="indefinite"/>
+                            <animate attributeName="x2" values="70;50;70" dur="1.5s" repeatCount="indefinite"/>
+                        </line>
+                        <line x1="30" y1="160" x2="65" y2="160" stroke="#E63946" stroke-width="3" opacity="0.5" stroke-linecap="round">
+                            <animate attributeName="x1" values="30;10;30" dur="1.5s" repeatCount="indefinite"/>
+                            <animate attributeName="x2" values="65;45;65" dur="1.5s" repeatCount="indefinite"/>
+                        </line>
+                        <line x1="35" y1="180" x2="70" y2="180" stroke="#E63946" stroke-width="3" opacity="0.5" stroke-linecap="round">
+                            <animate attributeName="x1" values="35;15;35" dur="1.5s" repeatCount="indefinite"/>
+                            <animate attributeName="x2" values="70;50;70" dur="1.5s" repeatCount="indefinite"/>
+                        </line>
+                        
+                        <!-- Cute Heart (for medical care) -->
+                        <path d="M 320 100 C 320 85 305 75 295 75 C 285 75 275 85 270 95 C 265 85 255 75 245 75 C 235 75 220 85 220 100 C 220 120 270 145 270 145 C 270 145 320 120 320 100 Z" fill="#E63946" opacity="0.7">
+                            <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/>
+                        </path>
+                        
+                        <!-- Plus signs floating -->
+                        <text x="310" y="180" font-size="24" fill="#E63946" opacity="0.6" font-weight="bold">+</text>
+                        <text x="340" y="140" font-size="20" fill="#E63946" opacity="0.5" font-weight="bold">+</text>
+                        <text x="290" y="210" font-size="18" fill="#E63946" opacity="0.4" font-weight="bold">+</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="bi bi-currency-dollar"></i>
+                        </div>
+                        <h3 class="feature-title">100% Gratis</h3>
+                        <p class="feature-text">
+                            Tidak ada biaya yang dipungut untuk layanan ambulan kami. Semua gratis untuk masyarakat.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="bi bi-clock-fill"></i>
+                        </div>
+                        <h3 class="feature-title">Siaga 24/7</h3>
+                        <p class="feature-text">
+                            Layanan kami tersedia 24 jam sehari, 7 hari seminggu untuk kondisi darurat Anda.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="bi bi-lightning-fill"></i>
+                        </div>
+                        <h3 class="feature-title">Responsif Cepat</h3>
+                        <p class="feature-text">
+                            Tim kami berkomitmen memberikan respons cepat untuk setiap panggilan darurat.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="layanan">
+        <div class="container">
+            <h2 class="section-title">Layanan Kami</h2>
+            <p class="section-subtitle">Berbagai layanan ambulan yang kami sediakan untuk masyarakat</p>
+            
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="service-item">
+                        <i class="bi bi-house-heart-fill"></i>
+                        <strong>Jasa Homecare</strong>
+                        <p class="mb-0 mt-2">Perawatan kesehatan di rumah untuk kenyamanan pasien</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="service-item">
+                        <i class="bi bi-star-fill"></i>
+                        <strong>Jasa Ambulan VIP</strong>
+                        <p class="mb-0 mt-2">Layanan ambulan dengan fasilitas premium</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="service-item">
+                        <i class="bi bi-peace-fill"></i>
+                        <strong>Pengantaran Jenazah</strong>
+                        <p class="mb-0 mt-2">Layanan pengantaran jenazah dengan penuh hormat</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="service-item">
+                        <i class="bi bi-heart-fill"></i>
+                        <strong>Pasien Cuci Darah</strong>
+                        <p class="mb-0 mt-2">Layanan khusus untuk pasien hemodialisis</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transparency Section -->
+    <section class="transparency-section" id="transparansi">
+        <div class="container">
+            <h2 class="section-title">Transparansi Donasi</h2>
+            <p class="section-subtitle">Kami berkomitmen untuk transparan dalam pengelolaan donasi</p>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="donation-card text-center">
+                        <h4 class="mb-4">Donasi melalui Kitabisa</h4>
+                        <p class="mb-4">
+                            Semua donasi yang masuk akan digunakan sepenuhnya untuk operasional ambulan gratis, 
+                            pemeliharaan kendaraan, dan membantu masyarakat yang membutuhkan.
+                        </p>
+                        
+                        <!-- Placeholder untuk widget Kitabisa -->
+                        <div class="p-4 bg-light rounded mb-3">
+                            <i class="bi bi-gift-fill" style="font-size: 3rem; color: var(--primary-red);"></i>
+                            <h5 class="mt-3">Widget Kitabisa Campaign</h5>
+                            <p class="text-muted small">
+                                (Akan diintegrasikan dengan link campaign Kitabisa)
+                            </p>
+                            <a href="https://kitabisa.com/ambulanswiuwiu" target="_blank" class="btn btn-primary" style="background: var(--primary-red); border: none;">
+                                <i class="bi bi-box-arrow-up-right"></i> Lihat Campaign Kami
+                            </a>
+                        </div>
+                        
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <div class="p-3 bg-light rounded">
+                                    <div class="donation-label">Total Donasi Terkumpul</div>
+                                    <div class="donation-amount">Rp XXX,XXX</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="p-3 bg-light rounded">
+                                    <div class="donation-label">Total Donatur</div>
+                                    <div class="donation-amount">XXX</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p class="mt-4 text-muted small">
+                            <i class="bi bi-info-circle-fill"></i> 
+                            Data diperbarui otomatis dari platform Kitabisa
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="kontak">
+        <div class="container">
+            <h2 class="section-title text-white">Hubungi Kami</h2>
+            <p class="section-subtitle text-white opacity-75">
+                Jangan ragu untuk menghubungi kami kapan saja dalam kondisi darurat
+            </p>
+            
+            <div class="row g-4 mb-5">
+                <div class="col-md-4">
+                    <div class="contact-box">
+                        <div class="contact-icon">
+                            <i class="bi bi-telephone-fill"></i>
+                        </div>
+                        <h4 class="contact-title">Call Center</h4>
+                        <p class="contact-detail">087 700 607 700</p>
+                        <p class="mb-0 small opacity-75">Tersedia 24/7</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="contact-box">
+                        <div class="contact-icon">
+                            <i class="bi bi-geo-alt-fill"></i>
+                        </div>
+                        <h4 class="contact-title">Area Layanan</h4>
+                        <p class="contact-detail">Malang Raya</p>
+                        <p class="mb-0 small opacity-75">Kota & Kabupaten Malang</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="contact-box">
+                        <div class="contact-icon">
+                            <i class="bi bi-bank"></i>
+                        </div>
+                        <h4 class="contact-title">Donasi Via</h4>
+                        <p class="contact-detail">BSI</p>
+                        <p class="mb-0 small opacity-75">714 8181 823</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <a href="https://wa.me/6287700607700?text=Halo%20WiuWiu%20Ambulance%2C%20saya%20membutuhkan%20bantuan%20ambulan" 
+                   class="btn-whatsapp" target="_blank">
+                    <i class="bi bi-whatsapp"></i> Chat via WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h4 class="footer-title">
+                        <i class="bi bi-heart-pulse-fill"></i> WiuWiu Ambulance
+                    </h4>
+                    <p class="text-white-50">
+                        Ambulan gratis untuk masyarakat Malang Raya. 
+                        Kami hadir membantu mereka yang membutuhkan dengan layanan responsif dan profesional.
+                    </p>
+                    <div class="mt-3">
+                        <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                        <a href="https://www.instagram.com/wiuwiugratis" class="social-icon" target="_blank"><i class="bi bi-instagram"></i></a>
+                        <a href="https://wa.me/6287700607700" class="social-icon" target="_blank"><i class="bi bi-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5 class="footer-title">Layanan</h5>
+                    <a href="#" class="footer-link">Ambulan Gratis</a>
+                    <a href="#" class="footer-link">Homecare</a>
+                    <a href="#" class="footer-link">Ambulan VIP</a>
+                    <a href="#" class="footer-link">Kamar Singgah</a>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5 class="footer-title">Kontak Darurat</h5>
+                    <p class="text-white-50">
+                        <i class="bi bi-telephone-fill"></i> 087 700 607 700<br>
+                        <i class="bi bi-geo-alt-fill"></i> Malang, Jawa Timur<br>
+                        <i class="bi bi-clock-fill"></i> 24/7 Siaga
+                    </p>
+                </div>
+            </div>
+            <hr class="bg-white opacity-25">
+            <div class="text-center text-white-50 py-3">
+                <p class="mb-0">&copy; 2025 WiuWiu Ambulance Indonesia. Semua hak dilindungi.</p>
+                <p class="mb-0 small">Dibuat dengan <i class="bi bi-heart-fill text-danger"></i> untuk masyarakat Malang</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'white';
+            }
+        });
+    </script>
+</body>
+</html>
