@@ -384,7 +384,7 @@ body.dark-mode {
 }
 body.dark-mode .navbar { background: #2d2d2d !important; }
 body.dark-mode .nav-link { color: #e0e0e0 !important; }
-body.dark-mode .features-section, body.dark-mode .units-section { background: #242424; }
+body.dark-mode .features-section, body.dark-mode .units-section, body.dark-mode .transparency-section { background: #242424; }
 body.dark-mode .feature-card, body.dark-mode .service-item, body.dark-mode .unit-card, body.dark-mode .donation-card {
     background: #2d2d2d; color: #e0e0e0;
 }
