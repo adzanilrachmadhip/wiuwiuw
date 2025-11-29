@@ -384,6 +384,9 @@ body.dark-mode {
 }
 body.dark-mode .navbar { background: #2d2d2d !important; }
 body.dark-mode .nav-link { color: #e0e0e0 !important; }
+body.dark-mode .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.95%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
 body.dark-mode .features-section, body.dark-mode .units-section, body.dark-mode .transparency-section { background: #242424; }
 body.dark-mode .feature-card, body.dark-mode .service-item, body.dark-mode .unit-card, body.dark-mode .donation-card {
     background: #2d2d2d; color: #e0e0e0;
